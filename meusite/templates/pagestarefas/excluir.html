@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excluir Assunto</title>
+
+  <style>
+   *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    padding:40px;
+    background:
+    linear-gradient(rgba(0,0,0,.60),rgba(0,0,0,.60)),
+    url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1600&auto=format&fit=crop");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+
+/* Título */
+
+h1{
+    text-align:center;
+    color:white;
+    font-size:42px;
+    margin-bottom:30px;
+    text-shadow:2px 2px 12px black;
+}
+
+
+/* Menu */
+
+ul{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    list-style:none;
+    margin-bottom:40px;
+    flex-wrap:wrap;
+}
+
+ul li a{
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(135deg,#0d6efd,#0056d2);
+    padding:14px 28px;
+    border-radius:12px;
+    font-weight:bold;
+    transition:.35s;
+    box-shadow:0 8px 18px rgba(13,110,253,.35);
+}
+
+ul li a:hover{
+    background:linear-gradient(135deg,#198754,#157347);
+    transform:translateY(-5px);
+    box-shadow:0 15px 30px rgba(0,0,0,.4);
+}
+
+
+/* Caixa principal */
+
+.container{
+    max-width:650px;
+    margin:auto;
+    padding:35px;
+    background:rgba(255,255,255,.95);
+    border-radius:20px;
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
+    backdrop-filter:blur(12px);
+}
+
+
+/* Título da caixa */
+
+h2{
+    text-align:center;
+    color:#dc3545;
+    font-size:30px;
+    margin-bottom:25px;
+}
+
+
+/* Alerta */
+
+.alerta{
+    background:#fff3cd;
+    color:#856404;
+    border-left:6px solid #ffc107;
+    padding:18px;
+    border-radius:12px;
+    margin-bottom:25px;
+    font-weight:500;
+}
+
+
+/* Informações */
+
+.info{
+    background:#f8f9fa;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:30px;
+    border:1px solid #ddd;
+}
+
+.info p{
+    margin:12px 0;
+    color:#444;
+    font-size:16px;
+}
+
+.info strong{
+    display:inline-block;
+    width:120px;
+    color:#222;
+}
+
+
+/* Botões */
+
+.botoes{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+
+button{
+    padding:15px 30px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+    color:white;
+    transition:.3s;
+}
+
+
+.excluir{
+    background:linear-gradient(135deg,#dc3545,#a71d2a);
+}
+
+
+.cancelar{
+    background:linear-gradient(135deg,#6c757d,#495057);
+}
+
+
+button:hover{
+    transform:translateY(-5px) scale(1.05);
+    box-shadow:0 12px 25px rgba(0,0,0,.35);
+}
+
+
+button:active{
+    transform:scale(.95);
+}
+
+
+/* Responsivo */
+
+@media(max-width:700px){
+
+    body{
+        padding:20px;
+    }
+
+    h1{
+        font-size:32px;
+    }
+
+
+    ul{
+        flex-direction:column;
+        align-items:center;
+    }
+
+
+    ul li{
+        width:100%;
+        max-width:300px;
+    }
+
+
+    ul li a{
+        display:block;
+        text-align:center;
+    }
+
+
+    .botoes{
+        flex-direction:column;
+    }
+
+
+    button{
+        width:100%;
+    }
+
+
+    .info strong{
+        width:auto;
+        display:block;
+        margin-bottom:5px;
+    }
+}
+  </style>
+</head>
+<body>
+    <h1>Excluir Tarefa</h1>
+
+    <ul>
+    <li><a href="{% url 'tarefas:home' %}">🏠 Home</a></li>
+    <li><a href="{% url 'tarefas:adicionar' %}">➕ Adicionar</a></li>
+    <li><a href="{% url 'tarefas:editar' %}">✏️ Editar</a></li>
+    <li><a href="{% url 'tarefas:excluir' %}">🗑️ Excluir</a></li>
+  </ul>
+
+  <div class="container">
+    <h2>Excluir Assunto</h2>
+
+    <div class="alerta">
+      <strong>⚠️ Atenção!</strong> A exclusão deste assunto será permanente e não poderá ser desfeita.
+    </div>
+
+    <div class="info">
+      <p><strong>Assunto:</strong> Cadastro de Cliente</p>
+      <p><strong>Descrição:</strong> Inclusão de um novo cliente no sistema.</p>
+      <p><strong>Status:</strong> Aberto</p>
+      <p><strong>Data:</strong> 08/07/2026</p>
+    </div>
+
+    <form action="#" method="post">
+      <div class="botoes">
+        <button type="submit" class="excluir">
+          Confirmar Exclusão
+        </button>
+
+        <button type="button" class="cancelar" onclick="history.back()">
+          Cancelar
+        </button>
+      </div>
+    </form>
+
+  </div>
+
+</body>
+</html>

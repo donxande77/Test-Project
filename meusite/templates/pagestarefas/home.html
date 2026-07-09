@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarefas</title>
+  <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    min-height: 100vh;
+    padding: 40px;
+    background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+                url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1600&auto=format&fit=crop");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+    font-size: 42px;
+    text-shadow: 2px 2px 10px black;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* Card principal */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,.25);
+}
+
+/* Menu */
+
+ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+ul li a {
+    text-decoration: none;
+    background: linear-gradient(135deg,#007bff,#0056b3);
+    color: white;
+    padding: 14px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: .35s;
+    display: inline-block;
+    box-shadow: 0 5px 15px rgba(0,123,255,.4);
+}
+
+/* Hover dos botões */
+
+ul li a:hover {
+    background: linear-gradient(135deg,#28a745,#1e7e34);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,.35);
+}
+
+/* Clique */
+
+ul li a:active {
+    transform: scale(.95);
+}
+
+/* Cabeçalho */
+
+th {
+    background: linear-gradient(135deg,#007BFF,#0056b3);
+    color: white;
+    padding: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Hover na tabela */
+
+tbody tr {
+    transition: .3s;
+}
+
+tbody tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+tbody tr:hover {
+    background: #dbeeff;
+    transform: scale(1.01);
+}
+
+/* Status */
+
+.status-aberto {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.status-andamento {
+    color: #ff9800;
+    font-weight: bold;
+}
+
+.status-concluido {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Caixa branca */
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    background: rgba(255,255,255,.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,.35);
+    backdrop-filter: blur(10px);
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+<h1>Seja bem-vindo {{nome}}</h1>
+
+<ul>
+    <li><a href="{% url 'tarefas:home' %}">🏠 Home</a></li>
+    <li><a href="{% url 'tarefas:adicionar' %}">➕ Adicionar</a></li>
+    <li><a href="{% url 'tarefas:editar' %}">✏️ Editar</a></li>
+    <li><a href="{% url 'tarefas:excluir' %}">🗑️ Excluir</a></li>
+</ul>
+
+<h2>Controle de Assuntos</h2>
+
+
+</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Assunto</th>
+        <th>Descrição</th>
+        <th>Status</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Reunião</td>
+        <td>Alinhamento da equipe de desenvolvimento.</td>
+        <td class="status-concluido">Concluído</td>
+        <td>08/07/2026</td>
+      </tr>
+      <tr>
+        <td>Implementação</td>
+        <td>Desenvolvimento da tela de cadastro.</td>
+        <td class="status-andamento">Em andamento</td>
+        <td>09/07/2026</td>
+      </tr>
+      <tr>
+        <td>Correção</td>
+        <td>Ajuste no cálculo do relatório financeiro.</td>
+        <td class="status-aberto">Aberto</td>
+        <td>10/07/2026</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
